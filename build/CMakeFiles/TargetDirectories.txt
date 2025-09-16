@@ -1,0 +1,3 @@
+C:/Users/monokl/Documents/My Projects/learngl/build/CMakeFiles/learngl.dir
+C:/Users/monokl/Documents/My Projects/learngl/build/CMakeFiles/edit_cache.dir
+C:/Users/monokl/Documents/My Projects/learngl/build/CMakeFiles/rebuild_cache.dir

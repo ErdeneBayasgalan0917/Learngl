@@ -1,0 +1,7 @@
+# ninja log v7
+20	1962	7796506665904935	CMakeFiles/learngl.dir/src/glad.c.obj	84188e253afc2de4
+19	2358	7797241433774163	CMakeFiles/learngl.dir/src/main.cpp.obj	a0164d4556cd2c6e
+1845	2237	7796129246071370	learngl_debug.exe	59bdc0551f529a27
+2360	2641	7797241457177581	learngl_release.exe	b95f805200d10130
+19	2402	7797244604799426	CMakeFiles/learngl.dir/src/main.cpp.obj	a0164d4556cd2c6e
+2403	2698	7797244628637205	learngl_release.exe	b95f805200d10130
