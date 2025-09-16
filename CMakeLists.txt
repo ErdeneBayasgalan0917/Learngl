@@ -34,6 +34,7 @@ target_link_libraries(learngl ${CMAKE_SOURCE_DIR}/lib/libglfw3.a opengl32)
 # Ensure _DEBUG is defined for Debug builds
 target_compile_definitions(learngl PRIVATE
 	$<$<CONFIG:Debug>:_DEBUG>
+	$<$<CONFIG:Release>:_RELEASE>
 )
 
 # Copy DLL after build (Windows only)

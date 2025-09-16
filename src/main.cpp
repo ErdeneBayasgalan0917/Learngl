@@ -141,10 +141,17 @@ int main() {
 	// TRIANGLE
 	float vertices[] = { // vertex attributes for a single vertex are now position and color
 		// positions         // colors
-		-0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom left
-		 0.5f, -0.5f, 0.0f,  0.0f, 0.5f, 0.5f,  // bottom right 
-		 0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f   // top center 
+		-0.25f, -0.25f, 0.0f,  1.0f, 0.0f, 0.0f,  // bottom left
+		 0.25f, -0.25f, 0.0f,  0.0f, 0.5f, 0.5f,  // bottom right 
+		 0.0f,  0.25f, 0.0f,  0.0f, 0.0f, 1.0f,
+		 //second trianglge
+		  0.25f, 0.6f, 0.0f,   0.0f, 1.0f, 1.0f,
+		-0.25f, 0.25f, 0.0f,  1.0f, 0.5f, 0.5f,
+		 0.0f, -0.25f, 0.0f,  0.0f, 0.0f, 1.0f  // top center 
 	}; //dont forget semicolons. please. SEMICOLONS ;;; SHALL RULE THE WORLD
+	//2nd TRIANGLE
+	
+		
 	
 	//VBO setup
 	unsigned int VBO;
@@ -242,6 +249,7 @@ int main() {
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
+
 	// 3. then set the vertex attributes pointers.
 	// position attribute
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
@@ -257,9 +265,7 @@ int main() {
 	unsigned int transformLoc = glGetUniformLocation(shaderProgram, "transform");
 
 	
-	// MAIN RENDER LOOP [what if we could implement intentional lag into our game ehehehehhe]
-
-
+	
 	// MAIN RENDER LOOP [what if we could implement intentional lag into our game ehehehehhe]
 	while (!glfwWindowShouldClose(window)) {
 		// Set background color and clear
@@ -283,28 +289,36 @@ int main() {
 
 		// === THIS IS WHERE THE ANIMATION MATH GOES! ===
 		// Create a transformation matrix. Start with an identity matrix (one that does nothing).
-		glm::mat4 transform = glm::mat4(1.0f); 
-		// Rotate it over time around the Z-axis. glfwGetTime() gives us a smoothly increasing value.
-		transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.25f, 0.5f, 1.0f));
+		glm::mat4 transform(1.0f); //define matrix without a value??
+		// Rotate it over time around the general line. glfwGetTime() gives us a smoothly increasing value.
+		transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+		//this uniform is for rotation (which uniform we are setting, the time elapsed, and the axis of rotation)
 
 		// Send the matrix to the shader
+		
+		
 		glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+		// a uniform is anything that is set in c++ and read only in the gpu. (const for GPUs)
+		
 
 		// Now, draw the triangle
-		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glBindVertexArray(VAO); //binding the VAO makes sure the shader has the correct data (failsafe)
+		glDrawArrays(GL_TRIANGLES, 0, 6); // instructs the program to use the given vertices to generate triangles. 
+		//and which VBO to start from. (doesnt really matter since we're only using 1 vbo.)
 
 		
 		
 		
 
 		// Swap buffers and poll events
-		glfwSwapBuffers(window);
-		glfwPollEvents();
+		glfwSwapBuffers(window); //double buffering to keep the unfinished rendering buffer out of view. 
+		glfwPollEvents(); //user input and window event handling.
 	}
 	
 	// Clean up
-	glfwDestroyWindow(window);
-	glfwTerminate();
-	return 0;
+	glDeleteVertexArrays(1, &VAO); //clean the 1 vao we have. heres the address
+	glDeleteBuffers(1, &VBO); //we have a hit on this one vbo. heres where he lives. (lol)
+	glfwDestroyWindow(window); //terminate window
+	glfwTerminate(); //terminate program entirely.
+	return 0; //exit code
 }

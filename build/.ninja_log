@@ -1,7 +1,8 @@
 # ninja log v7
-20	1962	7796506665904935	CMakeFiles/learngl.dir/src/glad.c.obj	84188e253afc2de4
-19	2358	7797241433774163	CMakeFiles/learngl.dir/src/main.cpp.obj	a0164d4556cd2c6e
-1845	2237	7796129246071370	learngl_debug.exe	59bdc0551f529a27
-2360	2641	7797241457177581	learngl_release.exe	b95f805200d10130
-19	2402	7797244604799426	CMakeFiles/learngl.dir/src/main.cpp.obj	a0164d4556cd2c6e
-2403	2698	7797244628637205	learngl_release.exe	b95f805200d10130
+24	4823	7797366672268077	CMakeFiles/learngl.dir/src/glad.c.obj	111eb7b9c1366889
+20	2899	7797366672212132	CMakeFiles/learngl.dir/src/main.cpp.obj	d1381056039bceaf
+4824	5113	7797366720251514	learngl_debug.exe	59bdc0551f529a27
+7159	8279	7797365308258189	learngl_release.exe	b95f805200d10130
+47	4788	7797367384448846	CMakeFiles/learngl.dir/src/glad.c.obj	a7749ead60ea9919
+36	7591	7797367384369038	CMakeFiles/learngl.dir/src/main.cpp.obj	6ea9aa625cb18c5c
+7599	8491	7797367459984595	learngl_release.exe	b95f805200d10130

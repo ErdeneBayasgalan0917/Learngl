@@ -51,6 +51,7 @@ build cmake_object_order_depends_target_learngl: phony || .
 
 build CMakeFiles/learngl.dir/src/main.cpp.obj: CXX_COMPILER__learngl_unscanned_Release C$:/Users/monokl/Documents/My$ Projects/learngl/src/main.cpp || cmake_object_order_depends_target_learngl
   CONFIG = Release
+  DEFINES = -D_RELEASE
   DEP_FILE = CMakeFiles\learngl.dir\src\main.cpp.obj.d
   FLAGS = -O3 -DNDEBUG
   INCLUDES = -I"C:/Users/monokl/Documents/My Projects/learngl/include"
@@ -59,6 +60,7 @@ build CMakeFiles/learngl.dir/src/main.cpp.obj: CXX_COMPILER__learngl_unscanned_R
 
 build CMakeFiles/learngl.dir/src/glad.c.obj: C_COMPILER__learngl_unscanned_Release C$:/Users/monokl/Documents/My$ Projects/learngl/src/glad.c || cmake_object_order_depends_target_learngl
   CONFIG = Release
+  DEFINES = -D_RELEASE
   DEP_FILE = CMakeFiles\learngl.dir\src\glad.c.obj.d
   FLAGS = -O3 -DNDEBUG
   INCLUDES = -I"C:/Users/monokl/Documents/My Projects/learngl/include"
